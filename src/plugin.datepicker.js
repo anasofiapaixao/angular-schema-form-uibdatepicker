@@ -1,4 +1,8 @@
 
+require('./directive.datepicker.js');
+const template = require('./plugin.datepicker.html');
+
+
 angular.module('schemaForm').config(
     ['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfPathProvider',
       function (schemaFormProvider, schemaFormDecoratorsProvider, sfPathProvider) {
@@ -24,7 +28,7 @@ angular.module('schemaForm').config(
         schemaFormDecoratorsProvider.addMapping(
             'bootstrapDecorator',
             asfFieldType,
-            'directives/decorators/bootstrap/uibdatepicker/plugin.datepicker.html'
+            './plugin.datepicker.html'
         );
       }
     ]);

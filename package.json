@@ -4,7 +4,8 @@
   "description": "A basic date and time picker for Angular Schema Form",
   "main": "dist/angular-schema-form-uibdatepicker.js",
   "scripts": {
-    "build": "gulp"
+    "build": "webpack --env dev && webpack --env build",
+    "dev": "webpack --progress --colors --watch --env dev"
   },
   "repository": {
     "type": "git",
@@ -21,24 +22,23 @@
   },
   "homepage": "https://github.com/anasofiapaixao/angular-schema-form-uibdatepicker",
   "dependencies": {
+    "date-fns": "^2.0.0-alpha.27"
   },
   "peerDependencies": {
     "angular": ">=1.7.5",
     "angular-schema-form": ">=0.8.13",
     "angular-schema-form-bootstrap": ">=0.2.0",
-    "angular-ui-bootstrap": ">=2.5.6",
-    "moment": "^2.22.2"
+    "angular-ui-bootstrap": ">=2.5.6"
   },
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-angular-templatecache": "^2.2.6",
-    "gulp-concat": "^2.6.1",
-    "gulp-jshint": "^2.1.0",
-    "jshint": "^2.9.7",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-plumber": "^1.2.1",
-    "gulp-terser": "^1.1.7",
-    "streamqueue": "^1.1.2"
+    "jshint": "^2.9.6",
+    "yarn": "^1.12.3",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.2.1",
+    "angular-templatecache-loader" :  "^0.2.0",
+    "babel-loader": "^8.0.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/core": "^7.2.2"
   },
   "nyc": {
     "sourceMap": false,
