@@ -37,7 +37,7 @@ gulp.task('non-minified-dist', gulp.series(function(done) {
               gulp.src('./src/*.html')
                   .pipe(templateCache({
                     module: 'schemaForm',
-                    root: 'directives/decorators/bootstrap/datepicker/'
+                    root: 'directives/decorators/bootstrap/uibdatepicker/'
                   }))
     );
   stream.queue(gulp.src('./src/*.js'));
