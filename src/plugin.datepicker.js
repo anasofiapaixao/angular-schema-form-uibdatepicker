@@ -28,7 +28,7 @@ angular.module('schemaForm').config(
         schemaFormDecoratorsProvider.addMapping(
             'bootstrapDecorator',
             asfFieldType,
-            './plugin.datepicker.html'
+            'src/plugin.datepicker.html'
         );
       }
     ]);
