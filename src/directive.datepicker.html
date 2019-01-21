@@ -1,0 +1,36 @@
+
+<div class="datepicker">
+  <input
+      type="text"
+      class="form-control"
+      placeholder="YYYY-MM-DDTHH:mm:ssZ"
+      aria-label='date format YYYY-MM-DDTHH:mm:ssZ'
+      ng-model="ngModel"
+      ng-change="inputChanged(ngModel)"
+  />
+
+  <a class="input-group-addon"
+     tabindex='0'
+     ng-click='collapse = !collapse;'
+     role='button'
+  >
+    <span class='glyphicon glyphicon-calendar'></span>
+  </a>
+
+  <div class="datepicker-popup" ng-show="collapse">
+    <div uib-datepicker
+         class="well well-sm"
+         ng-model="date"
+         ng-change="datepickerChanged(date)"
+         datepicker-options="{ showWeeks: false }"
+         style="margin-bottom:0;"
+    ></div>
+    <div uib-timepicker
+         class="well well-sm"
+         ng-model="dateTime"
+         ng-change="timepickerChanged(dateTime)"
+         show-meridian="false"
+         show-seconds="true"
+    ></div>
+  </div>
+</div>

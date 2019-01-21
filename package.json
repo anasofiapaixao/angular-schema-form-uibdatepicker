@@ -1,0 +1,47 @@
+{
+  "name": "angular-schema-form-uibdatepicker",
+  "version": "0.0.1",
+  "description": "A basic date and time picker for Angular Schema Form",
+  "main": "dist/angular-schema-form-uibdatepicker.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anasofiapaixao/angular-schema-form-uibdatepicker.git"
+  },
+  "keywords": [
+    "angular-schema-form",
+    "datepicker"
+  ],
+  "author": "Sofia Paixão",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anasofiapaixao/angular-schema-form-uibdatepicker/issues"
+  },
+  "homepage": "https://github.com/anasofiapaixao/angular-schema-form-uibdatepicker",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "angular": ">=1.7.5",
+    "angular-schema-form": ">=0.8.13",
+    "angular-schema-form-bootstrap": ">=0.2.0",
+    "angular-ui-bootstrap": ">=2.5.6",
+    "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-angular-templatecache": "^2.2.6",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "jshint": "^2.9.7",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-terser": "^1.1.7",
+    "streamqueue": "^1.1.2"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
+  }
+}
