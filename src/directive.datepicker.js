@@ -11,7 +11,20 @@ angular.module('schemaForm').directive('datepicker', ['moment', function (moment
       form: '='
     },
     link: function (scope, element, attrs, ngModel) {
-      let format = 'YYYY-MM-DDTHH:mm:ss[Z]';
+      const defaultOptions = {
+        format: 'YYYY-MM-DDTHH:mm:ss[Z]',
+        placeholder: '',
+        datepickerOptions: { showWeeks: false },
+        showMeridian: false,
+        showSeconds: true
+      };
+
+      scope.options = angular.extend({}, defaultOptions, scope.form.options || {});
+      let format = scope.options.format;
+
+      if(!scope.options.placeholder) {
+        scope.options.placeholder = moment(new Date()).format(format);
+      }
 
       let toDate = dateString =>
           dateString ? moment(dateString, format).toDate() : null;

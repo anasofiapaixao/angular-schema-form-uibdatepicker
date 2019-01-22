@@ -3,8 +3,8 @@
   <input
       type="text"
       class="form-control"
-      placeholder="YYYY-MM-DDTHH:mm:ssZ"
-      aria-label='date format YYYY-MM-DDTHH:mm:ssZ'
+      placeholder="{{options.placeholder}}"
+      aria-label="{{options.placeholder}}"
       ng-model="ngModel"
       ng-change="inputChanged(ngModel)"
   />
@@ -22,15 +22,15 @@
          class="well well-sm"
          ng-model="date"
          ng-change="datepickerChanged(date)"
-         datepicker-options="{ showWeeks: false }"
+         datepicker-options="options.datepickerOptions"
          style="margin-bottom:0;"
     ></div>
     <div uib-timepicker
          class="well well-sm"
          ng-model="dateTime"
          ng-change="timepickerChanged(dateTime)"
-         show-meridian="false"
-         show-seconds="true"
+         show-meridian="options.showMeridian"
+         show-seconds="options.showSeconds"
     ></div>
   </div>
 </div>

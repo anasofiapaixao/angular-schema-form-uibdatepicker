@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var v1='<div class=datepicker><input type=text class=form-control placeholder=YYYY-MM-DDTHH:mm:ssZ aria-label="date format YYYY-MM-DDTHH:mm:ssZ" ng-model=ngModel ng-change="inputChanged(ngModel)"> <a class=input-group-addon tabindex=0 ng-click="collapse = !collapse;" role=button><span class="glyphicon glyphicon-calendar"></span></a><div class=datepicker-popup ng-show=collapse><div uib-datepicker class="well well-sm" ng-model=date ng-change=datepickerChanged(date) datepicker-options="{ showWeeks: false }" style=margin-bottom:0></div><div uib-timepicker class="well well-sm" ng-model=dateTime ng-change=timepickerChanged(dateTime) show-meridian=false show-seconds=true></div></div></div>';
+var v1='<div class=datepicker><input type=text class=form-control placeholder={{options.placeholder}} aria-label={{options.placeholder}} ng-model=ngModel ng-change="inputChanged(ngModel)"> <a class=input-group-addon tabindex=0 ng-click="collapse = !collapse;" role=button><span class="glyphicon glyphicon-calendar"></span></a><div class=datepicker-popup ng-show=collapse><div uib-datepicker class="well well-sm" ng-model=date ng-change=datepickerChanged(date) datepicker-options=options.datepickerOptions style=margin-bottom:0></div><div uib-timepicker class="well well-sm" ng-model=dateTime ng-change=timepickerChanged(dateTime) show-meridian=options.showMeridian show-seconds=options.showSeconds></div></div></div>';
 angular.module('ng').run(['$templateCache', function ($templateCache) {$templateCache.put('src/directive.datepicker.html', v1);}]);
 module.exports=v1
 
@@ -127,7 +127,21 @@ angular.module('schemaForm').directive('datepicker', ['moment', function (moment
       form: '='
     },
     link: function link(scope, element, attrs, ngModel) {
-      var format = 'YYYY-MM-DDTHH:mm:ss[Z]';
+      var defaultOptions = {
+        format: 'YYYY-MM-DDTHH:mm:ss[Z]',
+        placeholder: '',
+        datepickerOptions: {
+          showWeeks: false
+        },
+        showMeridian: false,
+        showSeconds: true
+      };
+      scope.options = angular.extend({}, defaultOptions, scope.form.options || {});
+      var format = scope.options.format;
+
+      if (!scope.options.placeholder) {
+        scope.options.placeholder = moment(new Date()).format(format);
+      }
 
       var toDate = function toDate(dateString) {
         return dateString ? moment(dateString, format).toDate() : null;
