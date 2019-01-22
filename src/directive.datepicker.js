@@ -1,10 +1,7 @@
 
-const parse = require('date-fns/parse');
-const format = require('date-fns/format');
-const isValid = require('date-fns/is_valid');
 const template = require('./directive.datepicker.html');
 
-angular.module('schemaForm').directive('datepicker', function () {
+angular.module('schemaForm').directive('datepicker', ['moment', function (moment) {
 
   return {
     restrict: 'EA',
@@ -14,20 +11,20 @@ angular.module('schemaForm').directive('datepicker', function () {
       form: '='
     },
     link: function (scope, element, attrs, ngModel) {
-      let formatString = 'YYYY-MM-DDTHH:mm:ss[Z]';
+      let format = 'YYYY-MM-DDTHH:mm:ss[Z]';
 
       let toDate = dateString =>
-          dateString ? parse(dateString, formatString) : null;
+          dateString ? moment(dateString, format).toDate() : null;
 
       let toDateString = date =>
-          date ? format(date, formatString) : "";
+          date ? moment(date).format(format) : "";
 
       let isValidDate = date =>
           !date && !scope.form.required ||
           angular.isDate(date) && !isNaN(date);
 
       let isValidDateString = dateString =>
-          (!dateString || isValid(parse(dateString, formatString))) &&
+          (!dateString || moment(dateString, format, true).isValid()) &&
           isValidDate(toDate(dateString));
 
       // uib-datepicker clears the time information, so we need two models
@@ -70,4 +67,4 @@ angular.module('schemaForm').directive('datepicker', function () {
     },
     template: template
   };
-});
+}]);
