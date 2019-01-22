@@ -7,7 +7,7 @@ angular.module('schemaForm').config(
     ['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfPathProvider',
       function (schemaFormProvider, schemaFormDecoratorsProvider, sfPathProvider) {
 
-        var asfFieldType = 'datepicker';
+        var asfFieldType = 'uibdatepicker';
 
         //=== Schema config ===//
         var datepicker = function (name, schema, options) {

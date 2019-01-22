@@ -228,7 +228,7 @@ __webpack_require__(/*! ./directive.datepicker.js */ "./src/directive.datepicker
 var template = __webpack_require__(/*! ./plugin.datepicker.html */ "./src/plugin.datepicker.html");
 
 angular.module('schemaForm').config(['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfPathProvider', function (schemaFormProvider, schemaFormDecoratorsProvider, sfPathProvider) {
-  var asfFieldType = 'datepicker'; //=== Schema config ===//
+  var asfFieldType = 'uibdatepicker'; //=== Schema config ===//
 
   var datepicker = function datepicker(name, schema, options) {
     if (schema.type === 'string' && (schema.format === 'date' || schema.format === 'date-time')) {
