@@ -23,7 +23,7 @@ angular.module('schemaForm').directive('datepicker', ['moment', function (moment
       let format = scope.options.format;
 
       if(!scope.options.placeholder) {
-        scope.options.placeholder = moment(new Date()).format(format);
+        scope.options.placeholder = 'e.g.: ' + moment(new Date()).format(format);
       }
 
       let toDate = dateString =>
